@@ -13,5 +13,3 @@ shelltitle "Tab"
 hardstatus alwayslastline "%{= KW} %H %{= Kw}|%{-} %-w%{= bW}%n-%t%{-}%+w" # %=%c %d/%m/%y"
 # Fix for ssh-agent over screen
 setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
-
-setenv PROMPT_COMMAND ""

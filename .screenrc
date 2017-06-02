@@ -1,0 +1,17 @@
+termcapinfo xterm ti@:te@
+defscrollback 64000
+startup_message off
+msgwait 1
+bindkey ^[[11~ kill
+bindkey ^[[12~ title
+bindkey ^N screen
+bindkey ^[^[OC next
+bindkey ^[^[OD prev
+bindkey ^[[1;5D prev
+bindkey ^[[1;5C next
+shelltitle "Tab"
+hardstatus alwayslastline "%{= KW} %H %{= Kw}|%{-} %-w%{= bW}%n-%t%{-}%+w" # %=%c %d/%m/%y"
+# Fix for ssh-agent over screen
+setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+
+setenv PROMPT_COMMAND ""

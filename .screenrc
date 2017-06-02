@@ -1,7 +1,10 @@
+# Some default variables
 termcapinfo xterm ti@:te@
 defscrollback 64000
 startup_message off
 msgwait 1
+
+# Key bindings like Ctrl+n for new tab and Alt+Left/Right to navigate trough tabs
 bindkey ^[[11~ kill
 bindkey ^[[12~ title
 bindkey ^N screen
@@ -9,7 +12,24 @@ bindkey ^[^[OC next
 bindkey ^[^[OD prev
 bindkey ^[[1;5D prev
 bindkey ^[[1;5C next
+
+# Set default tab name
 shelltitle "Tab"
+
+# Set the bottom line style
 hardstatus alwayslastline "%{= KW} %H %{= Kw}|%{-} %-w%{= bW}%n-%t%{-}%+w" # %=%c %d/%m/%y"
+
 # Fix for ssh-agent over screen
 setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+# In addition to this fix, you need to add this content under ~/.ssh/rc file
+#
+# if test "$SSH_AUTH_SOCK" ; then
+#     ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+# fi
+#
+# For more information you can check https://gist.github.com/martijnvermaat/8070533
+
+# In order the tab names to be static, you need to modify the PROMPT_COMMAND variable
+# under /opt/bashrc file, or to create empty executable file /etc/sysconfig/bash-prompt-screen
+# Otherwise, you can play with the PROMPT_COMMAND variable in order to achieve more pretty names
+# for the tabs (I do not like the default ones)
